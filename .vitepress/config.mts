@@ -2,10 +2,14 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  srcDir: "./src",
+  outDir: "./dist",
+  cacheDir: "./.cache",
   title: "ddns4cdn",
   description: "Automatically update the IP address of origin server for CDN.",
+
+  // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [{ text: "Home", link: "/" }],
 
     sidebar: [

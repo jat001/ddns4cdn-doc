@@ -1,13 +1,21 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
-hero:
-  name: "ddns4cdn"
-  text: ""
-  tagline: "自动获取本机 IP 并更新 CDN 源站地址，同时支持 IPV4 和 IPV6。"
-  actions:
-    - theme: brand
-      text: 快速开始
-      link: /config
+features:
+  - title: 中文
+    link: /zh/
+  - title: English
+    link: /en/
 ---
+
+<script lang="ts" setup>
+import { onBeforeMount } from 'vue'
+import { useRouter } from 'vitepress'
+
+onBeforeMount(() => {
+  const locale = localStorage.getItem('locale')
+  if (locale) {
+    useRouter().go(`/${locale}/`)
+  }
+})
+</script>

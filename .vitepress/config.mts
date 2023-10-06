@@ -1,43 +1,33 @@
-import { defineConfig } from "vitepress"
+import { defineConfig } from 'vitepress'
+import { enConfig } from './en'
+import { zhConfig } from './zh'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  srcDir: "./src",
-  outDir: "./dist",
-  cacheDir: "./.cache",
-  title: "ddns4cdn",
-  description: "Automatically update the IP address of origin server for CDN.",
+  srcDir: './src',
+  outDir: './dist',
+  cacheDir: './.cache',
 
-  // https://vitepress.dev/reference/default-theme-config
+  title: 'ddns4cdn',
+  cleanUrls: true,
+  lastUpdated: true,
+
   themeConfig: {
-    nav: [{ text: "Home", link: "/" }],
-
-    sidebar: [
-      {
-        text: "快速开始",
-        items: [{ text: "配置", link: "/config" }],
-      },
-      {
-        text: "服务",
-        items: [
-          {
-            text: "Cloudflare",
-            link: "/services/cloudflare",
-          },
-          {
-            text: "腾讯云 ECDN",
-            link: "/services/tencent",
-          },
-          {
-            text: "阿里云 DCDN",
-            link: "/services/alibaba",
-          },
-        ],
-      },
-    ],
-
     socialLinks: [
-      { icon: "github", link: "https://github.com/jat001/ddns4cdn" },
+      { icon: 'github', link: 'https://github.com/jat001/ddns4cdn' },
     ],
+    editLink: {
+      pattern: 'https://github.com/jat001/ddns4cdn-docs/edit/main/src/:path',
+    },
+  },
+
+  locales: {
+    zh: {
+      label: '中文',
+      ...zhConfig,
+    },
+    en: {
+      label: 'English',
+      ...enConfig,
+    },
   },
 })
